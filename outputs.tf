@@ -30,3 +30,14 @@ output "sqs_queue_name" {
     0,
   )
 }
+
+output "sqs_queue_url" {
+  description = "The URL for the created Amazon SQS queue"
+  value = element(
+    concat(
+      aws_sqs_queue.this.*.url,
+      [""],
+    ),
+    0,
+  )
+}
